@@ -1,6 +1,6 @@
 ---
 title: "Quadruped Robot · Visual Perception & Control"
-excerpt: "Lightweight YOLOv8s perception + DeepLabv3 path planning, plus the lab's first serial-link quadruped control framework.<br/><img src='/images/proj-quadruped.png' style='max-width:520px'>"
+excerpt: "Lightweight YOLOv8s perception + DeepLabv3 path planning, plus the lab's first serial-link quadruped control framework.<br/><img src='/images/proj-quadruped.png?v=2' style='max-width:520px'>"
 collection: portfolio
 date: 2024-05-01
 permalink: /portfolio/quadruped/

@@ -1,6 +1,6 @@
 ---
 title: "co2-copilot · Multi-Agent Carbon Accounting Assistant"
-excerpt: "A four-layer LangGraph multi-agent system (router → domain experts → aggregator → judge) for IPCC-compliant carbon accounting Q&A.<br/><img src='/images/proj-co2copilot.png' style='max-width:520px'>"
+excerpt: "A four-layer LangGraph multi-agent system (router → domain experts → aggregator → judge) for IPCC-compliant carbon accounting Q&A.<br/><img src='/images/proj-co2copilot.png?v=2' style='max-width:520px'>"
 collection: portfolio
 date: 2024-09-01
 permalink: /portfolio/co2-copilot/

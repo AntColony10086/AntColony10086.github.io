@@ -1,6 +1,6 @@
 ---
 title: "Few-Shot Pest Detection · First-Author Paper (under review)"
-excerpt: "A few-shot pest-counting model with similarity-based attention, wavelet-domain co-processing, and a multi-class similarity-competition head.<br/><img src='/images/proj-pest-detection.png' style='max-width:520px'>"
+excerpt: "A few-shot pest-counting model with similarity-based attention, wavelet-domain co-processing, and a multi-class similarity-competition head.<br/><img src='/images/proj-pest-detection.png?v=2' style='max-width:520px'>"
 collection: portfolio
 date: 2025-04-01
 permalink: /portfolio/pest-detection/
