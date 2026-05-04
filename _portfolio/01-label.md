@@ -1,5 +1,5 @@
 ---
-title: "label · Active Multimodal Annotation Agent"
+title: "echobox agent"
 excerpt: "A LangGraph-orchestrated multimodal agent for human-in-the-loop visual annotation, combining Qwen-VL + GroundingDINO + SAM 2 with active learning.<br/><img src='/images/proj-label.png?v=3' style='max-width:520px'>"
 collection: portfolio
 date: 2024-10-01
