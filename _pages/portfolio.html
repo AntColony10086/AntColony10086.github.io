@@ -1,0 +1,17 @@
+---
+layout: archive
+title: "Projects"
+permalink: /portfolio/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p style="margin-top:0.5em;color:#555">
+Each project lists what was built, the role I held, and the metrics that matter for it.
+Numbers tagged <code>TBD</code> will be filled in as benchmarks are finalised.
+</p>
+
+{% for post in site.portfolio reversed %}
+  {% include archive-single.html %}
+{% endfor %}
