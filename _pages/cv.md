@@ -69,6 +69,5 @@ redirect_from:
 
 ### Contact
 
-- 📧 13937168990@163.com
 - 💻 [github.com/AntColony10086](https://github.com/AntColony10086)
 - 🌐 [antcolony10086.github.io](https://antcolony10086.github.io/)
