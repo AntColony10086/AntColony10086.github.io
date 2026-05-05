@@ -1,51 +1,54 @@
 ---
-title: "co2-copilot · Multi-Agent Carbon Accounting Assistant"
-excerpt: "A four-layer LangGraph multi-agent system (router → domain experts → aggregator → judge) for IPCC-compliant carbon accounting Q&A.<br/><img src='/images/proj-co2copilot.png?v=2' style='max-width:520px'>"
+title: "ScopeGraph · Multi-Agent GraphRAG Carbon Assistant"
+excerpt: "A LangGraph supervisor over 5 sub-agents on a Neo4j carbon knowledge graph. Hybrid Text2Cypher + vector retrieval, 3-layer per-tenant data isolation (JWT → state → Cypher whitelist), LLM-as-Judge grounding check, SSE streaming.<br/><img src='/images/proj-co2copilot.png?v=2' style='max-width:520px'>"
 collection: portfolio
 date: 2024-09-01
-permalink: /portfolio/co2-copilot/
+permalink: /portfolio/scopegraph/
+redirect_from:
+  - /portfolio/co2-copilot/
 ---
 
-**Role**: Core member · 2024.09 – 2025.04
-**Repo (legacy name, will be renamed `co2-copilot`)**: <https://github.com/AntColony10086/AIconverstionSys>
+**Role**: Author / maintainer · core member · 2024.09 – present
 
-**One-liner**: Carbon-accounting consultancy is policy-heavy, formula-heavy, and data-heavy. A single LLM hallucinates; a single retrieval misses scope; a brittle prompt drifts. The fix is to decompose the conversation into a small graph of specialists with a judge on top.
+**Repo**: <https://github.com/AntColony10086/ScopeGraph> · MIT · LangGraph + Neo4j + Vue 3
+
+**One-liner**: A conversational carbon-emissions data assistant. The name "ScopeGraph" reflects three layers it scopes simultaneously: GHG-Protocol **Scope 1 / 2 / 3**, **scope of access** (strict per-tenant boundaries), and **scope of retrieval** (hybrid Text2Cypher + vector over a single graph). Ask in natural language; get structured answers with units, sources, comparisons, and interpretation.
 
 **Architecture**
 
 ```
-[user query]
-      ↓
-[Router Agent]            ← 5-way intent classification
-      ↓
-[Policy RAG] [Calc Tools] [Mitigation Agent]
-LlamaIndex+pgvector   Function Calling      LLM + KB
-      ↓                                         ↓
-[Aggregator Agent]        ← merge expert outputs
-      ↓
-[Judge Agent]             ← LLM-as-Judge: faithfulness + completeness; route to human if low-confidence
+        user query (NL, zh / en)
+               │
+               ▼
+        [Supervisor]            ← LangGraph
+               │
+        ┌──────┴────────────┬──────────────┐
+        ▼                   ▼              ▼
+  [router]         [additional_info]  [graphrag_query]
+intent class.     ambiguity resolution  Text2Cypher + vector
+        │                   │              │
+        └─────────┬─────────┴──────────────┘
+                  ▼
+        [hallucination_check]   ← independent grounding judge (small LLM)
+                  ▼
+         streamed answer (SSE)
 ```
+
+Five sub-agents under one supervisor; everything streams over SSE with a 5-layer fallback chain (3 stream attempts + 2 non-stream retries) so reasoning models with `<think>...</think>` blocks work cleanly.
 
 **My contribution**
 
-- LangGraph four-layer state machine (router → experts → aggregator → judge)
-- LlamaIndex + pgvector hierarchical RAG over IPCC Guidelines, GB/T 32150, and other regulations, chunked at the *chapter–section–clause* granularity with parent-child retrieval
-- 10+ Function-Calling tools wrapping IPCC emission factors and per-scenario formulas (electricity, coal, transport, ...)
-- LLM-as-Judge for faithfulness + completeness scoring; low-confidence answers escalate to humans
-- FastAPI + WebSocket + Redis for multi-turn session state
-- Ragas offline evaluation on Faithfulness and Answer Relevancy
+- LangGraph supervisor + 5 sub-agents (router, additional_info, graphrag_query, hallucination check, file/image handling).
+- Hybrid retrieval over Neo4j: **Text2Cypher** for structured graph queries fused with multilingual vector search (`paraphrase-multilingual-MiniLM-L12-v2`).
+- **3-layer per-tenant data isolation**: JWT claims → graph state → injected Cypher whitelist. Admin sees all enterprises; per-tenant accounts can only query their bound enterprise. (Real RBAC, not a prompt instruction.)
+- **Anti-hallucination**: small-model independent grounding judge; low-confidence answers are annotated with a warning rather than silently emitted.
+- Reasoning-model-friendly LLM layer: strips `<think>...</think>` blocks, falls through 3 structured-output methods (`json_schema` → `function_calling` → manual JSON parse). Provider-swappable to MiniMax / OpenAI / local LM Studio with one env var.
+- 37 unit tests on the backend.
 
-**Tech stack**: LangGraph · LlamaIndex · pgvector · Function Calling · FastAPI · WebSocket · Redis · Ragas · LangSmith
+**Tech stack**: LangGraph · Neo4j (Text2Cypher + APOC) · `paraphrase-multilingual-MiniLM-L12-v2` · FastAPI · SSE · MySQL · Redis · Vue 3 + Pinia + Element Plus · MiniMax-M2.7 (OpenAI-compatible)
 
-**Status / metrics** *(numbers being finalised)*
+**Demo data notice**: All numeric values in the public repo are placeholders (`123`); enterprise / region names are anonymised. The repo demonstrates schema and pipeline — drop in real MRV data for production use.
 
-| Metric | Value |
-| --- | --- |
-| RAGAS Faithfulness | TBD |
-| RAGAS Answer Relevancy | TBD |
-| Tool-call success rate | TBD |
-| Hallucination rate (judged) | TBD |
-| Latency p50 / p95 | TBD |
-| Cost per query | TBD |
+**Outcome**: Reusable multi-agent GraphRAG template; the supervisor + sub-agent + grounding-judge pattern has since been reused by the team for two additional customer-service domains.
 
-**Outcome**: Reusable carbon-accounting customer-service agent stack; the multi-agent template has since been reused by the team for two additional customer-service domains.
+**Code**: <https://github.com/AntColony10086/ScopeGraph>

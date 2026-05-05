@@ -27,8 +27,8 @@ redirect_from:
 
 ### Selected Projects
 
-- **`label`** — multimodal active-annotation agent platform (LangGraph + Qwen-VL + GroundingDINO + SAM 2 + active learning) · *first undergraduate member, Multimodal Information Technology Autonomous Region Research Center*
-- **`co2-copilot`** — four-layer multi-agent carbon-accounting Q&A system (router → experts → aggregator → judge), LlamaIndex + pgvector RAG + 10 Function-Calling tools + LLM-as-Judge
+- **[`echobox`](https://github.com/AntColony10086/echobox)** — open-source multimodal annotation agent (Apache-2.0, ⭐ 5). LangGraph + GECO2 + SAM2 exemplar detection, MCP tools, COCO / YOLO / Pascal VOC / Label Studio export · *first undergraduate member, Multimodal Information Technology Autonomous Region Research Center*
+- **[`ScopeGraph`](https://github.com/AntColony10086/ScopeGraph)** — open-source multi-agent GraphRAG carbon assistant (MIT). LangGraph supervisor + 5 sub-agents over a Neo4j graph, hybrid Text2Cypher + vector retrieval, 3-layer per-tenant data isolation (JWT → state → Cypher whitelist), LLM-as-Judge grounding check, SSE streaming
 - **Smart-agriculture system** — single-agent + RAG application (LangChain + YOLO inference + 三端联动)
 - **Quadruped robot** — YOLOv8s + DeepLabv3 perception + first serial-link quadruped control framework in the lab
 
@@ -61,7 +61,7 @@ redirect_from:
 - **CV models I've shipped**: YOLOv5 / YOLOv8, DeepLabv3, SAM 2, GroundingDINO
 - **Agent stack**: LangChain · LangGraph · LlamaIndex · MCP · Function Calling · Pydantic
 - **VLMs / models**: Qwen-VL, GPT-4V, InternVL (via API)
-- **Vector DBs / RAG**: pgvector, FAISS, Chroma · hierarchical chunking · parent-child retrieval
+- **Vector DBs / RAG**: Neo4j (Text2Cypher + APOC) · pgvector, FAISS, Chroma · hierarchical chunking · parent-child retrieval · multilingual MiniLM embeddings
 - **Eval / observability**: Ragas · LangSmith · LLM-as-Judge
 - **Inference / serving**: FastAPI · WebSocket · Celery · Redis · Docker · vLLM (familiar)
 - **Tooling**: Linux · Git · CI/CD · cloud deployment

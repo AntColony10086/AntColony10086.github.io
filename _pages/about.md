@@ -22,7 +22,7 @@ My work sits at the intersection of three threads:
 - **Agent orchestration** — LangGraph state machines, MCP tool calling, RAG, multi-agent routing, LLM-as-Judge evaluation.
 - **System engineering** — FastAPI / Celery / Redis / pgvector / Docker pipelines that turn the above into reproducible services.
 
-I am the **first undergraduate member** of the Xinjiang Multimodal Information Technology Research Center, where I built the lab's first multimodal **active-annotation agent platform** (open-sourced as [`label`](https://github.com/AntColony10086/label)). I also led a four-layer multi-agent **carbon-accounting assistant** ([`AIconverstionSys`](https://github.com/AntColony10086/AIconverstionSys), to be renamed `co2-copilot`).
+I am the **first undergraduate member** of the Xinjiang Multimodal Information Technology Research Center, where I built the lab's first multimodal **annotation agent platform** (open-sourced as [`echobox`](https://github.com/AntColony10086/echobox) — Apache-2.0, ⭐ 5; LangGraph + GECO2 + SAM2 exemplar detection + MCP). I also lead [`ScopeGraph`](https://github.com/AntColony10086/ScopeGraph) (MIT) — a multi-agent **GraphRAG carbon assistant** built on a LangGraph supervisor + Neo4j knowledge graph with strict per-tenant data isolation.
 
 I am applying for graduate admission in the **Agent / multimodal LLM / Agent infrastructure** direction.
 
@@ -31,8 +31,8 @@ I am applying for graduate admission in the **Agent / multimodal LLM / Agent inf
 ### News
 
 - **2026-05** — Submitted first-author paper on few-shot pest detection (similarity-based attention + multi-class competition); under review.
-- **2026-04** — Open-sourced [`label`](https://github.com/AntColony10086/label), a multimodal active-annotation agent platform built on LangGraph + Qwen-VL + GroundingDINO + SAM 2.
-- **2026-04** — Open-sourced [`AIconverstionSys`](https://github.com/AntColony10086/AIconverstionSys), a four-layer multi-agent carbon-accounting Q&A system.
+- **2026-04** — Open-sourced [`echobox`](https://github.com/AntColony10086/echobox), a LangGraph multimodal annotation agent (GECO2 + SAM2 exemplar detection, MCP, COCO/YOLO/Pascal VOC export). Apache-2.0.
+- **2026-04** — Open-sourced [`ScopeGraph`](https://github.com/AntColony10086/ScopeGraph), a multi-agent GraphRAG carbon assistant on Neo4j with 3-layer per-tenant data isolation. MIT.
 - **2025-09** — Joined the Multimodal Information Technology Autonomous Region Research Center as the **first undergraduate** member.
 - **2024-XX** — ROBOCON National First Prize × 1, National Second Prize × 5.
 
@@ -42,7 +42,7 @@ I am applying for graduate admission in the **Agent / multimodal LLM / Agent inf
 
 - **National-level**: ROBOCON 国一 ×1 / 国二 ×5; 全国电子设计大赛 国二; 嵌入式芯片与系统设计大赛 国二; 中国国际大学生创新大赛 国铜.
 - **Publications**: 1 first-author paper under review; 1 software copyright (智慧农业项目).
-- **Open source**: 2 maintained projects ([`label`](https://github.com/AntColony10086/label), [`AIconverstionSys`](https://github.com/AntColony10086/AIconverstionSys)).
+- **Open source**: 2 maintained projects — [`echobox`](https://github.com/AntColony10086/echobox) (Apache-2.0, ⭐ 5) · [`ScopeGraph`](https://github.com/AntColony10086/ScopeGraph) (MIT).
 - **Languages**: CET-4 538 / CET-6 462; can present project work in English.
 
 See [Projects](/portfolio/) · [Publications](/publications/) · [Awards](/awards/) · [CV](/cv/).
