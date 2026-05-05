@@ -1,6 +1,6 @@
 ---
 title: "ScopeGraph · Multi-Agent GraphRAG Carbon Assistant"
-excerpt: "A LangGraph supervisor over 5 sub-agents on a Neo4j carbon knowledge graph. Hybrid Text2Cypher + vector retrieval, 3-layer per-tenant data isolation (JWT → state → Cypher whitelist), LLM-as-Judge grounding check, SSE streaming.<br/><img src='/images/proj-co2copilot.png?v=4' style='max-width:520px'>"
+excerpt: "A LangGraph supervisor over 5 sub-agents on a Neo4j carbon knowledge graph. Hybrid Text2Cypher + vector retrieval, 3-layer per-tenant data isolation (JWT → state → Cypher whitelist), LLM-as-Judge grounding check, SSE streaming.<br/><img src='/images/proj-co2copilot.png?v=5' style='max-width:520px'>"
 collection: portfolio
 date: 2024-09-01
 permalink: /portfolio/scopegraph/
